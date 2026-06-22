@@ -10,6 +10,14 @@ const projects = [
     image: '/portfolio/chipmunk_go_cover.png',
     link: 'https://skillerguard.github.io/portfolio/chipmunk-go/index.html',
     tags: ['Web Game', 'Vanilla JS', 'Canvas']
+  },
+  {
+    id: 2,
+    title: 'The Crawler',
+    description: 'A terrifying first-person 3D horror experience with night vision and a stalking AI.',
+    image: '/portfolio/the_crawler_cover.png',
+    link: 'https://skillerguard.github.io/portfolio/the-crawler/index.html',
+    tags: ['3D Game', 'Three.js', 'Horror', 'Web App']
   }
 ];
 
