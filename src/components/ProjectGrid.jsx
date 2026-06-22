@@ -2,7 +2,16 @@ import React from 'react';
 import ProjectCard from './ProjectCard';
 import './ProjectGrid.css';
 
-const projects = [];
+const projects = [
+  {
+    id: 1,
+    title: 'Chipmunk Go!',
+    description: 'An endless pixel-art runner with a custom physics engine and moving elevators.',
+    image: '/portfolio/chipmunk_go_cover.png',
+    link: 'https://skillerguard.github.io/portfolio/chipmunk-go/index.html',
+    tags: ['Web Game', 'Vanilla JS', 'Canvas']
+  }
+];
 
 const ProjectGrid = () => {
   return (
