@@ -22,7 +22,7 @@ const projects = [
     id: 3,
     title: 'Chipmunk Go!',
     description: 'An endless pixel-art runner with a custom physics engine and moving elevators.',
-    image: '/chipmunk-go/assets/bg.png',
+    image: '/chipmunk_go_cover.png',
     link: '/chipmunk-go/index.html',
     tags: ['Web Game', 'Vanilla JS', 'Canvas']
   }
