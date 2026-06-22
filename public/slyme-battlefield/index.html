@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Slyme vs. Zombies — A juicy top-down endless survival shooter." />
+  <title>Slyme vs. Zombies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="./assets/index-BVDhJHAV.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CV--l5zZ.css">
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- ═══════════ CHARACTER SELECT SCREEN ═══════════ -->
+  <div id="charSelect" class="overlay active">
+    <div class="glass-panel char-panel">
+      <button id="btnFullscreen" class="btn-fullscreen" title="Toggle Fullscreen">⛶</button>
+      <h1 class="title glow-text">SLYME<span class="accent">vs</span>ZOMBIES</h1>
+      <p class="subtitle">Choose your Fighter</p>
+
+      <div id="charPicker" class="char-picker">
+        <div class="char-card selected" data-char="slyme">
+          <div class="char-card-icon">🟢</div>
+          <div class="char-card-name">Slyme</div>
+          <div class="char-card-tag">Balanced Fighter</div>
+          <div class="char-card-stats">HP: 5 | ★☆☆</div>
+        </div>
+        <div class="char-card" data-char="ignis">
+          <div class="char-card-icon">🔥</div>
+          <div class="char-card-name">Ignis</div>
+          <div class="char-card-tag">Horde Demolisher</div>
+          <div class="char-card-stats">HP: 3 | ★☆☆</div>
+        </div>
+        <div class="char-card" data-char="klynt">
+          <div class="char-card-icon">⚙️</div>
+          <div class="char-card-name">Klynt</div>
+          <div class="char-card-tag">Turret Engineer</div>
+          <div class="char-card-stats">HP: 7 | ★★★</div>
+        </div>
+        <div class="char-card" data-char="necro">
+          <div class="char-card-icon">💀</div>
+          <div class="char-card-name">Necro</div>
+          <div class="char-card-tag">Dark Sorcerer</div>
+          <div class="char-card-stats">HP: 10 | ★★★</div>
+        </div>
+        <div class="char-card" data-char="kor">
+          <div class="char-card-icon">🌋</div>
+          <div class="char-card-name">Kor</div>
+          <div class="char-card-tag">Molten Titan</div>
+          <div class="char-card-stats">HP: 5 | ★★☆</div>
+        </div>
+        <div class="char-card" data-char="spyrit">
+          <div class="char-card-icon">👻</div>
+          <div class="char-card-name">Spyrit</div>
+          <div class="char-card-tag">Glass Spectre</div>
+          <div class="char-card-stats">HP: 1 | ★★★</div>
+        </div>
+        <div class="char-card" data-char="druid">
+          <div class="char-card-icon">🌿</div>
+          <div class="char-card-name">Druid</div>
+          <div class="char-card-tag">Forest Guardian</div>
+          <div class="char-card-stats">HP: 5 | ★★☆</div>
+        </div>
+        <div class="char-card" data-char="prysem">
+          <div class="char-card-icon">🌈</div>
+          <div class="char-card-name">Prysem</div>
+          <div class="char-card-tag">Prismatic Golem</div>
+          <div class="char-card-stats">HP: 10 | ★☆☆</div>
+        </div>
+      </div>
+
+      <div class="char-preview-wrap">
+        <canvas id="charPreview" width="160" height="160"></canvas>
+        <div id="charNameDisplay" class="char-name">Slyme</div>
+        <div id="charDescDisplay" class="char-desc">Ability: <strong>Expand</strong> — become a puddle of slyme and damage nearby enemies</div>
+      </div>
+
+      <div class="select-section">
+        <label class="select-label">Color</label>
+        <div id="colorPicker" class="color-row">
+          <button class="color-btn selected" data-color="#00ff88" style="--c:#00ff88" aria-label="Color 1"></button>
+          <button class="color-btn" data-color="#ff4488" style="--c:#ff4488" aria-label="Color 2"></button>
+          <button class="color-btn" data-color="#4488ff" style="--c:#4488ff" aria-label="Color 3"></button>
+          <button class="color-btn" data-color="#ffaa00" style="--c:#ffaa00" aria-label="Color 4"></button>
+          <button class="color-btn" data-color="#aa44ff" style="--c:#aa44ff" aria-label="Color 5"></button>
+          <button class="color-btn" data-color="#ff6644" style="--c:#ff6644" aria-label="Color 6"></button>
+        </div>
+      </div>
+
+      <div class="select-section">
+        <label class="select-label">Face</label>
+        <div id="facePicker" class="face-row">
+          <button class="face-btn selected" data-face="happy">^‿^</button>
+          <button class="face-btn" data-face="angry">&gt;_&lt;</button>
+          <button class="face-btn" data-face="cool">⌐■_■</button>
+          <button class="face-btn" data-face="derpy">O_o</button>
+        </div>
+      </div>
+
+      <div class="menu-actions">
+        <button id="btnOpenQuests" class="btn-secondary">📜 ACHIEVEMENTS</button>
+        <button id="btnStart" class="btn-primary pulse">START GAME</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ SHOP OVERLAY ═══════════ -->
+  <div id="shopOverlay" class="overlay">
+    <div class="glass-panel shop-panel">
+      <div class="overlay-header">
+        <h2 class="glow-text">STAT SHOP</h2>
+        <div class="overlay-gel-counter">Gel: <span id="shopGelText">0</span> 🧪</div>
+      </div>
+      <p class="subtitle">Infinitely stackable upgrades (prices scale up)</p>
+      <div id="shopItems" class="shop-grid">
+        <!-- Injected via JS -->
+      </div>
+      <button id="btnCloseShop" class="btn-secondary">CLOSE (B / ESC)</button>
+    </div>
+  </div>
+
+  <!-- ═══════════ LAB OVERLAY ═══════════ -->
+  <div id="labOverlay" class="overlay">
+    <div class="glass-panel lab-panel">
+      <div class="overlay-header">
+        <h2 class="glow-text">THE LAB</h2>
+        <div class="overlay-gel-counter">Gel: <span id="labGelText">0</span> 🧪</div>
+      </div>
+      <p class="subtitle">Unique ability modifications & perks for <span id="labCharName" class="accent-text">Slyme</span></p>
+      <div id="labPerks" class="lab-grid">
+        <!-- Injected via JS -->
+      </div>
+      <button id="btnCloseLab" class="btn-secondary">CLOSE (V / ESC)</button>
+    </div>
+  </div>
+
+  <!-- ═══════════ ACHIEVEMENTS OVERLAY ═══════════ -->
+  <div id="questOverlay" class="overlay">
+    <div class="glass-panel quest-panel">
+      <div class="overlay-header">
+        <h2 class="glow-text">📜 ACHIEVEMENTS</h2>
+        <div class="starting-gel-bonus">Starting Gel: +<span id="startingGelBonusText">0</span> 🧪</div>
+      </div>
+      <p class="subtitle">Complete achievements to earn starting Gel bonuses for all future runs!</p>
+      
+      <!-- Category Tabs -->
+      <div class="quest-tabs">
+        <button class="quest-tab active" data-category="all">All</button>
+        <button class="quest-tab" data-category="combat">Combat</button>
+        <button class="quest-tab" data-category="survival">Survival</button>
+        <button class="quest-tab" data-category="economy">Economy</button>
+        <button class="quest-tab" data-category="class">Class</button>
+      </div>
+
+      <div id="questItems" class="quest-grid">
+        <!-- Injected via JS -->
+      </div>
+      <button id="btnCloseQuests" class="btn-secondary">CLOSE (Q / ESC)</button>
+    </div>
+  </div>
+
+  <!-- ═══════════ GAME OVER OVERLAY ═══════════ -->
+  <div id="gameOverOverlay" class="overlay">
+    <div class="glass-panel gameover-panel">
+      <h2 class="gameover-title glow-text">GAME OVER</h2>
+      <div id="finalStats" class="final-stats"></div>
+      <button id="btnRestart" class="btn-primary">PLAY AGAIN</button>
+    </div>
+  </div>
+
+  <!-- ═══════════ HUD ═══════════ -->
+  <div id="hud" class="hud hidden">
+    <div class="hud-top-left">
+      <div class="hud-hp-wrap">
+        <div class="hud-label">HP</div>
+        <div class="hud-bar hp-bar">
+          <div id="hpFill" class="hud-bar-fill hp-fill"></div>
+        </div>
+        <div id="hpText" class="hud-value">5 / 5</div>
+      </div>
+      <div class="hud-gel-wrap">
+        <div class="hud-label">GEL</div>
+        <div class="hud-gel-display"><span id="gelText" class="glow-text">0</span> 🧪</div>
+      </div>
+    </div>
+    <div class="hud-top-right">
+      <div id="timerText" class="hud-timer">0:00</div>
+      <div id="killsText" class="hud-kills">Kills: 0</div>
+      <div class="hud-menu-buttons">
+        <button id="btnOpenShop" class="hud-menu-btn">Shop (B)</button>
+        <button id="btnOpenLab" class="hud-menu-btn">Lab (V)</button>
+      </div>
+    </div>
+    <div class="hud-bottom">
+      <div class="hud-abilities">
+        <div id="abilityIndicator" class="ability-indicator">
+          <div class="ability-icon">E</div>
+          <div class="ability-details">
+            <div class="ability-name">Expand</div>
+            <div id="abilityCooldown" class="ability-cooldown">READY</div>
+          </div>
+        </div>
+        <div id="ultIndicator" class="ability-indicator locked">
+          <div class="ability-icon">Q</div>
+          <div class="ability-details">
+            <div class="ability-name">Goo Vortex</div>
+            <div id="ultCooldown" class="ability-cooldown">LOCKED</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

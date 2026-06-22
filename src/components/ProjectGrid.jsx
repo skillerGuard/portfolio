@@ -18,6 +18,14 @@ const projects = [
     image: '/portfolio/the_crawler_cover.png',
     link: 'https://skillerguard.github.io/portfolio/the-crawler/index.html',
     tags: ['3D Game', 'Three.js', 'Horror', 'Web App']
+  },
+  {
+    id: 3,
+    title: 'Slyme Battlefield',
+    description: 'A juice-packed top-down endless survival shooter with 8 custom characters, upgrades, and achievement-based progression.',
+    image: '/portfolio/slyme_battlefield_cover.png',
+    link: 'https://skillerguard.github.io/portfolio/slyme-battlefield/index.html',
+    tags: ['Web Game', 'Vite', 'Vanilla JS', 'Achievements']
   }
 ];
 
