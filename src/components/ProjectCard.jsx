@@ -7,7 +7,13 @@ const ProjectCard = ({ project }) => {
       <div className="card-image-container">
         <img src={project.image} alt={project.title} className="card-image" />
         <div className="card-overlay">
-          <button className="btn btn-primary play-btn">Play Now</button>
+          {project.link ? (
+            <a href={project.link} target="_blank" rel="noopener noreferrer">
+              <button className="btn btn-primary play-btn">Play Now</button>
+            </a>
+          ) : (
+            <button className="btn btn-primary play-btn">Play Now</button>
+          )}
         </div>
       </div>
       <div className="card-content">

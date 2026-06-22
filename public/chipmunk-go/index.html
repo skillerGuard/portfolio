@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chipmunk Go!</title>
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+    <div id="game-container">
+        <!-- The Main Game Canvas -->
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+        <!-- UI Overlays -->
+        <div id="ui-layer">
+            <div id="score-display">Score: 0</div>
+            
+            <div id="start-screen" class="screen active">
+                <h1 class="title">Chipmunk Go!</h1>
+                <p>Press <kbd>Space</kbd> or <kbd>Up Arrow</kbd> to jump.</p>
+                <p>Hold in mid-air to glide!</p>
+                <button id="start-btn">Play Now</button>
+            </div>
+
+            <div id="game-over-screen" class="screen">
+                <h1 class="title">Game Over</h1>
+                <p>Final Score: <span id="final-score">0</span></p>
+                <button id="restart-btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

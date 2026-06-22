@@ -17,6 +17,14 @@ const projects = [
     description: 'A magical pixel art platformer where you control the light to solve ancient puzzles.',
     image: '/pixel_hero_cover.png',
     tags: ['Platformer', 'Pixel Art', 'Unity']
+  },
+  {
+    id: 3,
+    title: 'Chipmunk Go!',
+    description: 'An endless pixel-art runner with a custom physics engine and moving elevators.',
+    image: '/chipmunk-go/assets/bg.png',
+    link: '/chipmunk-go/index.html',
+    tags: ['Web Game', 'Vanilla JS', 'Canvas']
   }
 ];
 
