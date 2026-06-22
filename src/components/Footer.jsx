@@ -11,8 +11,6 @@ const Footer = () => {
         </div>
         <div className="footer-links">
           <a href="https://github.com/skillerGuard" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="#">Twitter</a>
-          <a href="#">itch.io</a>
         </div>
       </div>
       <div className="footer-bottom">
