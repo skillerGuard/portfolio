@@ -56,6 +56,28 @@ window.addEventListener('keyup', (e) => {
     }
 });
 
+// Mobile Touch Controls
+window.addEventListener('touchstart', (e) => {
+    if (e.target.tagName === 'BUTTON') return; // Don't trigger jump when tapping UI buttons
+    
+    // Prevent default scrolling behavior on mobile
+    if (gameState === 'PLAYING') {
+        e.preventDefault();
+    }
+    
+    keys.jump = true;
+    if (gameState === 'PLAYING' && player.grounded) {
+        player.jump();
+    }
+}, { passive: false });
+
+window.addEventListener('touchend', (e) => {
+    keys.jump = false;
+    if (gameState === 'PLAYING' && player.dy < 0) {
+        player.dy *= 0.5;
+    }
+});
+
 // Load Images
 const images = {};
 const imageUrls = {
